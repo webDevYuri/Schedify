@@ -1,10 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
+interface NavLink {
+  label: string;
+  path: string;
+}
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule],
-  templateUrl: './header.html'
+  imports: [CommonModule, RouterModule],
+  templateUrl: './header.html',
+  styleUrls: ['./header.css'],
 })
-export class Header {}
+export class Header {
+  isMobileMenuOpen = false;
+  isScrolled = false;
+
+  navLinks: NavLink[] = [
+    { label: 'Home', path: '/' },
+    { label: 'Pricing', path: '/pricing' },
+    { label: 'Features', path: '/features' },
+    { label: 'Contact', path: '/contact' },
+  ];
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.pageYOffset > 50;
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+  }
+}

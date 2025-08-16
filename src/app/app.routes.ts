@@ -8,11 +8,11 @@ import { TermsConditions } from './components/terms-conditions/terms-conditions'
 import { RefundPolicy } from './components/refund-policy/refund-policy';
 
 export const routes: Routes = [
-  { path: '', component: Home },
-  { path: 'pricing', component: Pricing },
-  { path: 'features', component: Features },
-  { path: 'contact', component: Contact },
-  { path: 'privacy-policy', component: PrivacyPolicy },
-  { path: 'terms-conditions', component: TermsConditions },
-  { path: 'refund-policy', component: RefundPolicy }
+  { path: '', component: Home, data: { title: 'Schedify | Home' } },
+  { path: 'pricing', component: Pricing, data: { title: 'Schedify | Pricing' } },
+  { path: 'features', component: Features, data: { title: 'Schedify | Features' } },
+  { path: 'contact', component: Contact, data: { title: 'Schedify | Contact' } },
+  { path: 'privacy-policy', component: PrivacyPolicy, data: { title: 'Schedify | Privacy Policy' } },
+  { path: 'terms-conditions', component: TermsConditions, data: { title: 'Schedify | Terms & Conditions' } },
+  { path: 'refund-policy', component: RefundPolicy, data: { title: 'Schedify | Refund Policy' } }
 ];

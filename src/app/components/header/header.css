@@ -1,0 +1,11 @@
+.nav-active {
+  color: #ccff00 !important;
+  border-bottom-color: #ccff00 !important;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.mobile-nav-active {
+  color: #ccff00 !important;
+  background-color: rgba(204, 255, 0, 0.1);
+  border-left: 3px solid #ccff00;
+}
