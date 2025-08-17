@@ -1,10 +1,65 @@
-<footer class="bg-gray-800 text-white py-4 mt-10">
-  <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
-    <p class="text-sm">&copy; {{ currentYear }} Schedify. All rights reserved.</p>
-    <ul class="flex gap-4 mt-2 md:mt-0">
-      <li><a routerLink="/privacy-policy" class="hover:text-blue-400">Privacy Policy</a></li>
-      <li><a routerLink="/terms-conditions" class="hover:text-blue-400">Terms & Conditions</a></li>
-      <li><a routerLink="/refund-policy" class="hover:text-blue-400">Refund Policy</a></li>
-    </ul>
+<footer class="bg-dark text-white">
+  <div
+    class="max-w-7xl mx-auto px-6 lg:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
+  >
+    <div>
+      <h2 class="text-2xl font-bold">Schedify</h2>
+      <p class="text-sm text-gray-400 mt-3 leading-relaxed">
+        Powerful scheduling platform designed to save you time and keep your work organized.
+      </p>
+      <div class="flex gap-4 mt-5">
+        <a href="#" class="hover:text-primary"><i class="ri-facebook-fill text-2xl"></i></a>
+        <a href="#" class="hover:text-primary"><i class="ri-twitter-x-fill text-2xl"></i></a>
+        <a href="#" class="hover:text-primary"><i class="ri-instagram-line text-2xl"></i></a>
+        <a href="#" class="hover:text-primary"><i class="ri-linkedin-fill text-2xl"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="text-lg font-semibold mb-5">Quick Links</h3>
+      <ul class="links">
+        <li *ngFor="let link of quickLinks">
+          <a [routerLink]="link.path"><i class="ri-arrow-right-s-line"></i>{{ link.label }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-lg font-semibold mb-5">Services</h3>
+      <ul class="services">
+        <li *ngFor="let service of services">
+          <span><i class="ri-check-line"></i>{{ service }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-lg font-semibold mb-5">Get Started</h3>
+      <div class="flex flex-col sm:flex-row lg:flex-col gap-3">
+        <button
+          class="px-5 py-2 bg-primary-600 text-black font-semibold rounded-lg hover:bg-primary-700 transition-all w-full sm:w-auto lg:w-full"
+        >
+          Sign In
+        </button>
+        <button
+          class="px-5 py-2 border border-primary-600 text-primary-600 font-semibold rounded-lg hover:bg-primary-600 hover:text-black transition-all w-full sm:w-auto lg:w-full"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-dark-light">
+    <div
+      class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400"
+    >
+      <p>&copy; {{ currentYear }} Schedify. All rights reserved.</p>
+      <ul class="flex flex-wrap justify-center gap-6">
+        <li><a routerLink="/privacy-policy" class="hover:text-primary">Privacy Policy</a></li>
+        <li><a routerLink="/terms-conditions" class="hover:text-primary">Terms & Conditions</a></li>
+        <li><a routerLink="/refund-policy" class="hover:text-primary">Refund Policy</a></li>
+      </ul>
+    </div>
   </div>
 </footer>

@@ -9,3 +9,7 @@
   background-color: rgba(204, 255, 0, 0.1);
   border-left: 3px solid #ccff00;
 }
+
+.mobile-menu-shadow {
+  box-shadow: 0 5px 5px #ccff001e; 
+}

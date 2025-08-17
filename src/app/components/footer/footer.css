@@ -1,0 +1,32 @@
+.links li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #9ca3af;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.links li a:hover {
+  color: #ccff00;
+}
+
+.services li span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #9ca3af;
+  font-size: 0.95rem;
+  transition: color 0.25s ease;
+}
+
+.services li span:hover {
+  color: #ccff00;
+}
+
+.links li i,
+.services li i {
+  font-size: 1rem;
+  color: #ccff00;
+}
