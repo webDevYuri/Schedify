@@ -1,55 +1,27 @@
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out;
-}
-
-.animate-slide-up {
-  animation: slide-up 0.8s ease-out;
-}
-
 @keyframes float {
-  0%, 100% { 
-    transform: translateY(0px) rotate(0deg); 
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
   }
-  33% { 
-    transform: translateY(-10px) rotate(120deg); 
+  33% {
+    transform: translateY(-10px) rotate(120deg);
   }
-  66% { 
-    transform: translateY(5px) rotate(240deg); 
+  66% {
+    transform: translateY(5px) rotate(240deg);
   }
 }
 
 @media (min-width: 640px) {
   @keyframes float {
-    0%, 100% { 
-      transform: translateY(0px) rotate(0deg); 
+    0%,
+    100% {
+      transform: translateY(0) rotate(0);
     }
-    33% { 
-      transform: translateY(-20px) rotate(120deg); 
+    33% {
+      transform: translateY(-20px) rotate(120deg);
     }
-    66% { 
-      transform: translateY(10px) rotate(240deg); 
+    66% {
+      transform: translateY(10px) rotate(240deg);
     }
   }
 }
@@ -66,11 +38,13 @@
 .feature-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(59, 130, 246, 0.1) 50%, transparent 100%);
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.1) 50%,
+    transparent 100%
+  );
   opacity: 0;
   transition: opacity 0.5s ease;
   border-radius: 0.75rem;
@@ -90,48 +64,38 @@
   .feature-card {
     padding: 1rem;
   }
-  
   .floating-shape {
     opacity: 0.3;
-  }
-  
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slide-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 }
 
 @media (hover: none) {
   .feature-card:hover {
     transform: none;
-    scale: 1;
   }
-  
   .feature-card:active {
     transform: scale(0.98);
   }
-
-  @media (max-width: 639px) {
-  .mobile-section-adjust {
-    margin-top: -2rem; 
-  }
 }
 
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+details[open] .faq-content {
+  max-height: 300px;
+  opacity: 1;
+}
+
+@media (max-width: 639px) {
+  .mobile-section-adjust {
+    margin-top: -2rem;
+  }
 }

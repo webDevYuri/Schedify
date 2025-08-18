@@ -26,37 +26,38 @@
   transform: scale(1.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.billing-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  padding: 0.25rem;
+  background: rgba(255, 255, 255, 0.02);
 }
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.toggle-btn {
+  background: transparent;
+  color: #cbd5e1;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out;
+.toggle-btn:hover {
+  background: rgba(34, 197, 94, 0.08);
 }
-.animate-slide-up {
-  animation: slide-up 0.8s ease-out;
+.toggle-btn.active {
+  background: #e4ffee;
+  color: #071014;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.12);
 }
-
 ul {
   padding-left: 0;
 }
 li {
   list-style: none;
+}
+.plan-btn,
+.plan-btn:focus {
+  outline: none;
 }

@@ -1,16 +1,18 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, NgZone } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map } from 'rxjs/operators';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 
+declare const AOS: any;
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, Header, Footer],
   templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  styleUrls: ['./app.css'],
 })
 export class App {
   protected readonly title = signal('frontend');
@@ -18,19 +20,27 @@ export class App {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private titleService: Title
+    private titleService: Title,
+    private ngZone: NgZone 
   ) {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(() => {
-        let route = this.activatedRoute.firstChild;
-        while (route?.firstChild) {
-          route = route.firstChild;
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map(() => {
+          let route = this.activatedRoute.firstChild;
+          while (route?.firstChild) {
+            route = route.firstChild;
+          }
+          return route?.snapshot.data['title'] || 'Schedify';
+        })
+      )
+      .subscribe((pageTitle: string) => {
+        this.titleService.setTitle(pageTitle);
+        if (typeof AOS !== 'undefined') {
+          this.ngZone.runOutsideAngular(() => {
+            setTimeout(() => AOS.refreshHard(), 100); 
+          });
         }
-        return route?.snapshot.data['title'] || 'Schedify';
-      })
-    ).subscribe((pageTitle: string) => {
-      this.titleService.setTitle(pageTitle);
-    });
+      });
   }
 }

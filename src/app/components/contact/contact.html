@@ -18,10 +18,11 @@
   <div class="relative z-10 max-w-screen-xl w-full mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-wrap lg:flex-nowrap gap-10">
       <div
-        class="flex-1 basis-full lg:basis-1/2 max-w-full lg:max-w-[50%] space-y-8 animate-fade-in-up opacity-0"
-        style="animation-delay: 0.2s; animation-fill-mode: forwards"
+        class="flex-1 basis-full lg:basis-1/2 max-w-full lg:max-w-[50%] flex flex-col justify-center space-y-6"
+        data-aos="fade-up"
+        data-aos-delay="200"
       >
-        <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold">
           Get in
           <span class="text-primary relative inline-block">
             touch
@@ -32,7 +33,7 @@
           We’d love to hear from you. Reach out via any of the methods below or send us a message
           using the form.
         </p>
-        <div class="space-y-4 text-left">
+        <div class="space-y-4">
           <p class="flex items-center gap-3 text-gray-400">
             <i class="ri-phone-line text-primary text-xl"></i> +1 234 567 890
           </p>
@@ -55,12 +56,14 @@
           </div>
         </div>
       </div>
+
       <div
-        class="flex-1 basis-full lg:basis-1/2 flex justify-center animate-fade-in-up opacity-0"
-        style="animation-delay: 0.4s; animation-fill-mode: forwards"
+        class="flex-1 basis-full lg:basis-1/2 flex justify-center"
+        data-aos="fade-up"
+        data-aos-delay="400"
       >
         <form
-          class="w-full max-w-md sm:max-w-lg flex flex-col gap-6 bg-dark-light/50 p-6 sm:p-8 rounded-xl border border-gray-700/50 relative"
+          class="w-full max-w-md sm:max-w-lg flex flex-col gap-6 bg-dark-light/50 p-6 sm:p-8 rounded-xl border border-gray-700/0 relative"
         >
           <div class="flex flex-col gap-2">
             <label for="name" class="text-gray-400 text-sm">Your Name</label>
