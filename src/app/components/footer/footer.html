@@ -36,16 +36,18 @@
     <div>
       <h3 class="text-lg font-semibold mb-5">Get Started</h3>
       <div class="flex flex-col sm:flex-row lg:flex-col gap-3">
-        <button
-          class="px-5 py-2 bg-primary-600 text-black font-semibold rounded-lg hover:bg-primary-700 transition-all w-full sm:w-auto lg:w-full"
+        <a
+          [routerLink]="['/sign-in']"
+          class="px-5 py-2 text-center bg-primary-600 text-black font-semibold rounded-lg hover:bg-primary-700 transition-all w-full sm:w-auto lg:w-full"
         >
           Sign In
-        </button>
-        <button
-          class="px-5 py-2 border border-primary-600 text-primary-600 font-semibold rounded-lg hover:bg-primary-600 hover:text-black transition-all w-full sm:w-auto lg:w-full"
+        </a>
+        <a
+          [routerLink]="['/sign-up']"
+          class="px-5 py-2 text-center border border-primary-600 text-primary-600 font-semibold rounded-lg hover:bg-primary-600 hover:text-black transition-all w-full sm:w-auto lg:w-full"
         >
           Register
-        </button>
+        </a>
       </div>
     </div>
   </div>

@@ -21,13 +21,11 @@ export class Footer {
     { label: 'Home', path: '/' },
     { label: 'Pricing', path: '/pricing' },
     { label: 'Features', path: '/features' },
-    { label: 'Contact', path: '/contact' },
   ];
 
   services: string[] = [
     'Appointment Scheduling',
     'Automated Reminders',
     'Calendar Integration',
-    'Team Management'
   ];
 }

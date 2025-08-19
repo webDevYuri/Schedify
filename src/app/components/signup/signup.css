@@ -33,3 +33,35 @@
     margin-top: -2rem;
   }
 }
+
+@media (max-width: 640px) {
+  .form-side h2 {
+    font-size: 1.25rem; 
+  }
+
+  .form-side p {
+    font-size: 0.85rem;
+  }
+
+  .form-side label {
+    font-size: 0.85rem;
+  }
+
+  .form-side input {
+    padding: 0.65rem 0.85rem; 
+    font-size: 0.9rem;
+  }
+
+  .form-side button {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  .form-side .text-xs {
+    font-size: 0.7rem;
+  }
+
+  .form-side .text-sm {
+    font-size: 0.8rem;
+  }
+}

@@ -22,7 +22,6 @@ export class Header {
     { label: 'Home', path: '/' },
     { label: 'Pricing', path: '/pricing' },
     { label: 'Features', path: '/features' },
-    { label: 'Contact', path: '/contact' },
   ];
 
   @HostListener('window:scroll', [])

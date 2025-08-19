@@ -10,7 +10,7 @@ declare const AOS: any;
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Header, Footer],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
