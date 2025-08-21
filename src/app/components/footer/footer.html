@@ -5,7 +5,7 @@
     <div>
       <h2 class="text-2xl font-bold">Schedify</h2>
       <p class="text-sm text-gray-400 mt-3 leading-relaxed">
-        Powerful scheduling platform designed to save you time and keep your work organized.
+        The smarter way for your business to manage appointments, reduce no-shows, and grow.
       </p>
       <div class="flex gap-4 mt-5">
         <a href="#" class="hover:text-primary"><i class="ri-facebook-fill text-2xl"></i></a>
@@ -25,28 +25,28 @@
     </div>
 
     <div>
-      <h3 class="text-lg font-semibold mb-5">Services</h3>
+      <h3 class="text-lg font-semibold mb-5">Key Benefits</h3>
       <ul class="services">
-        <li *ngFor="let service of services">
-          <span><i class="ri-check-line"></i>{{ service }}</span>
+        <li *ngFor="let benefit of benefits">
+          <span><i class="ri-check-line"></i>{{ benefit }}</span>
         </li>
       </ul>
     </div>
 
     <div>
-      <h3 class="text-lg font-semibold mb-5">Get Started</h3>
+      <h3 class="text-lg font-semibold mb-5">Ready to Get Started?</h3>
       <div class="flex flex-col sm:flex-row lg:flex-col gap-3">
         <a
-          [routerLink]="['/sign-in']"
-          class="px-5 py-2 text-center bg-primary-600 text-black font-semibold rounded-lg hover:bg-primary-700 transition-all w-full sm:w-auto lg:w-full"
+          [routerLink]="['/sign-up']"
+          class="px-5 py-2 text-center bg-primary text-black font-semibold rounded-lg hover:bg-primary-600 transition-all w-full sm:w-auto lg:w-full"
         >
-          Sign In
+          Start Your Free Trial
         </a>
         <a
-          [routerLink]="['/sign-up']"
-          class="px-5 py-2 text-center border border-primary-600 text-primary-600 font-semibold rounded-lg hover:bg-primary-600 hover:text-black transition-all w-full sm:w-auto lg:w-full"
+          [routerLink]="['/sign-in']"
+          class="px-5 py-2 text-center border border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-dark transition-all w-full sm:w-auto lg:w-full"
         >
-          Register
+          Sign In
         </a>
       </div>
     </div>

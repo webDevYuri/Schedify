@@ -11,6 +11,9 @@ import { TermsConditions } from './components/terms-conditions/terms-conditions'
 import { RefundPolicy } from './components/refund-policy/refund-policy';
 import { Signin } from './components/signin/signin';
 import { Signup } from './components/signup/signup';
+import { ForgotPassword } from './components/forgot-password/forgot-password';
+import { ResetPassword } from './components/reset-password/reset-password';
+import { AccountVerified } from './components/account-verified/account-verified';
 
 export const routes: Routes = [
   {
@@ -31,6 +34,9 @@ export const routes: Routes = [
     children: [
       { path: 'sign-in', component: Signin, data: { title: 'Schedify | Sign In' } },
       { path: 'sign-up', component: Signup, data: { title: 'Schedify | Sign Up' } },
+      { path: 'forgot-password', component: ForgotPassword, data: { title: 'Schedify | Forgot Password' } },
+      { path: 'reset-password', component: ResetPassword, data: { title: 'Schedify | Reset Password' } },
+      { path: 'account-verified', component: AccountVerified, data: { title: 'Schedify | Account Verified' } }
     ]
   }
 ];

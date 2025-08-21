@@ -1,52 +1,82 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pricing',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './pricing.html',
   styleUrls: ['./pricing.css'],
 })
 export class Pricing {
   billingCycle: 'monthly' | 'yearly' = 'monthly';
 
-  formatCurrency(value: number): string {
+  private plansData = {
+    free: {
+      monthlyPrice: 0,
+      benefits: [
+        '7-day free trial',
+        'Set up your booking page',
+        'Unlimited bookings',
+        'Limited features',
+      ],
+    },
+    pro: {
+      monthlyPrice: 29,
+      benefits: [
+        'Unlimited bookings & clients',
+        'Custom booking page link',
+        'Automated email notifications',
+        'Basic booking analytics',
+      ],
+    },
+    premium: {
+      monthlyPrice: 59,
+      benefits: [
+        'Everything in Pro, plus:',
+        'SMS & email reminders',
+        'Client profiles',
+        'Detailed financial reports',
+        'Priority customer support',
+      ],
+    },
+  };
+
+  private formatCurrency(value: number): string {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 0,
-    }).format(Number(value.toFixed(2)));
+    }).format(value);
   }
 
-  getPrice(monthly: number): string {
-    if (monthly === 0) {
-      return this.formatCurrency(0) + ' / month • Total: ' + this.formatCurrency(0);
-    }
-    if (this.billingCycle === 'monthly') {
-      const total = monthly * 12;
-      return `${this.formatCurrency(monthly)} / month • Total: ${this.formatCurrency(total)}`;
-    } else {
-      const yearly = monthly * 12;
-      const discounted = yearly * 0.8;
-      const perMonthEquivalent = discounted / 12;
-      return `${this.formatCurrency(perMonthEquivalent)} / month • Total: ${this.formatCurrency(
-        discounted
-      )}`;
-    }
-  }
+  getPlan(planName: 'free' | 'pro' | 'premium'): any {
+    const plan = this.plansData[planName];
+    const monthlyTotal = plan.monthlyPrice * 12;
 
-  getTotal(monthly: number): string {
-    if (monthly === 0) {
-      return '';
+    if (planName === 'free') {
+      return {
+        price: this.formatCurrency(0),
+        total: `No credit card required`,
+        benefits: plan.benefits,
+      };
     }
+
     if (this.billingCycle === 'monthly') {
-      const total = monthly * 12;
-      return `Total for 12 months: ${this.formatCurrency(total)}`;
+      return {
+        price: this.formatCurrency(plan.monthlyPrice),
+        total: `Billed monthly`,
+        benefits: plan.benefits,
+      };
     } else {
-      const yearly = monthly * 12;
-      const discounted = yearly * 0.8;
-      return `Billed annually: ${this.formatCurrency(discounted)}`;
+      const yearlyTotal = monthlyTotal * 0.8;
+      const perMonthEquivalent = yearlyTotal / 12;
+      return {
+        price: this.formatCurrency(perMonthEquivalent),
+        total: `Billed annually: ${this.formatCurrency(yearlyTotal)}`,
+        benefits: plan.benefits,
+      };
     }
   }
 

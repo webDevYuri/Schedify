@@ -1,11 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-forgot-password',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './forgot-password.html',
-  styleUrl: './forgot-password.css'
+  styleUrls: ['./forgot-password.css'],
 })
-export class ForgotPassword {
+export class ForgotPassword implements OnInit {
+  forgotPasswordForm!: FormGroup;
 
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.forgotPasswordForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+    });
+  }
+
+  onSubmit() {
+    if (this.forgotPasswordForm.valid) {
+    } else {
+      this.forgotPasswordForm.markAllAsTouched();
+    }
+  }
 }

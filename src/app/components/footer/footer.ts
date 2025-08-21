@@ -23,9 +23,10 @@ export class Footer {
     { label: 'Features', path: '/features' },
   ];
 
-  services: string[] = [
-    'Appointment Scheduling',
-    'Automated Reminders',
-    'Calendar Integration',
+  benefits: string[] = [
+    'Automated Booking Page',
+    'Reduced No-Shows',
+    'Streamlined Scheduling',
+    'Real-time Insights',
   ];
 }
